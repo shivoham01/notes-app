@@ -10,9 +10,12 @@ const notesSlice = createSlice({
     reducers: {
         addToNotes: (state, action) => {
             state.items.push(action.payload)
+        },
+        removeFromNotes: (state, action)=>{
+            state.items = state.items.filter((item)=> item.id !== action.payload)
         }
     }
 })
 
-export const { addToNotes } = notesSlice.actions
+export const { addToNotes, removeFromNotes } = notesSlice.actions
 export default notesSlice.reducer
