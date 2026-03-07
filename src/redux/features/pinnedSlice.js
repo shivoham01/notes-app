@@ -1,0 +1,25 @@
+import { createSlice } from "@reduxjs/toolkit";
+
+const initialState = {
+    items: JSON.parse(localStorage.getItem('pinnedNotes')) || []
+}
+
+const pinnedSlice = createSlice({
+    name: 'pinnedNotes',
+    initialState,
+    reducers: {
+        addToPinned: (state, action) => {
+            const alreadyExists = state.items.find(
+                item => item.id === action.payload.id
+            )
+            console.log(action.payload.id)
+            if(!alreadyExists){
+                state.items.push(action.payload)
+                localStorage.setItem('pinnedNotes', JSON.stringify(state.items))
+            }
+        }
+    }
+}) 
+
+export const { addToPinned } = pinnedSlice.actions
+export default pinnedSlice.reducer
