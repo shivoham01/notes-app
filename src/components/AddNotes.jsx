@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react"
+import { useDispatch } from "react-redux";
 import { addToNotes } from "../redux/features/notesSlice";
 import { toast, Zoom } from 'react-toastify';
 
@@ -7,12 +7,6 @@ const AddNotes = () => {
     const [title, setTitle] = useState('');
     const [desc, setDesc] = useState('');
     const dispatch = useDispatch()
-
-    // Saving notes to localStorage
-    const notes = useSelector((state) => state.notes.items)
-    useEffect(() => {
-        localStorage.setItem('notes', JSON.stringify(notes))
-    }, [notes])
 
     // On Submit Handler
     const onSubmitHandler = (e) => {
@@ -23,7 +17,7 @@ const AddNotes = () => {
             desc
         }))
 
-        // Added to Notes Toast
+        // Added to Notes
         toast.success('Added to Notes ✅', {
             position: "top-center",
             autoClose: 2000,

@@ -12,14 +12,15 @@ const pinnedSlice = createSlice({
             const alreadyExists = state.items.find(
                 item => item.id === action.payload.id
             )
-            console.log(action.payload.id)
             if(!alreadyExists){
                 state.items.push(action.payload)
-                localStorage.setItem('pinnedNotes', JSON.stringify(state.items))
             }
+        },
+        removeFromPinned: (state, action)=>{
+            state.items = state.items.filter((item) => item.id !== action.payload)
         }
     }
 }) 
 
-export const { addToPinned } = pinnedSlice.actions
+export const { addToPinned, removeFromPinned } = pinnedSlice.actions
 export default pinnedSlice.reducer
