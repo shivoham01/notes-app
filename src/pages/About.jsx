@@ -1,6 +1,12 @@
 const About = () => {
   return (
-    <div>About</div>
+    <div>
+      <h1 className="my-10 text-3xl text-center font-bold">About US</h1>
+      <p className="text-center p-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit ipsum illum ratione nam quod nulla recusandae nobis, vel enim, impedit praesentium reiciendis labore fugiat molestias alias. Adipisci, vel soluta? Voluptate nulla aliquid laudantium explicabo quidem fugit tempore ipsa earum incidunt facilis quaerat laborum a praesentium ut consequatur ducimus facere vel laboriosam similique aspernatur, dolorem aut voluptas beatae? Veniam ducimus animi sunt minima dolores voluptatem a delectus. Ullam tenetur eveniet fugiat quia, at necessitatibus ipsum delectus laboriosam laborum quae nemo voluptate.</p>
+      <p className="text-center p-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit ipsum illum ratione nam quod nulla recusandae nobis, vel enim, impedit praesentium reiciendis labore fugiat molestias alias. Adipisci, vel soluta? Voluptate nulla aliquid laudantium explicabo quidem fugit tempore ipsa earum incidunt facilis quaerat laborum a praesentium ut consequatur ducimus facere vel laboriosam similique aspernatur, dolorem aut voluptas beatae? Veniam ducimus animi sunt minima dolores voluptatem a delectus. Ullam tenetur eveniet fugiat quia, at necessitatibus ipsum delectus laboriosam laborum quae nemo voluptate.</p>
+      <p className="text-center p-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit ipsum illum ratione nam quod nulla recusandae nobis, vel enim, impedit praesentium reiciendis labore fugiat molestias alias. Adipisci, vel soluta? Voluptate nulla aliquid laudantium explicabo quidem fugit tempore ipsa earum incidunt facilis quaerat laborum a praesentium ut consequatur ducimus facere vel laboriosam similique aspernatur, dolorem aut voluptas beatae? Veniam ducimus animi sunt minima dolores voluptatem a delectus. Ullam tenetur eveniet fugiat quia, at necessitatibus ipsum delectus laboriosam laborum quae nemo voluptate.</p>
+      <p className="text-center p-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit ipsum illum ratione nam quod nulla recusandae nobis, vel enim, impedit praesentium reiciendis labore fugiat molestias alias. Adipisci, vel soluta? Voluptate nulla aliquid laudantium explicabo quidem fugit tempore ipsa earum incidunt facilis quaerat laborum a praesentium ut consequatur ducimus facere vel laboriosam similique aspernatur, dolorem aut voluptas beatae? Veniam ducimus animi sunt minima dolores voluptatem a delectus. Ullam tenetur eveniet fugiat quia, at necessitatibus ipsum delectus laboriosam laborum quae nemo voluptate.</p>
+    </div>
   )
 }
 

@@ -4,7 +4,7 @@ const Navbar = () => {
     return (
         <div className="flex justify-between items-center bg-blue-900 px-4 py-2">
             <Link to='/'>
-                <h2 className='text-xl font-bold'>Notes - App</h2>
+                <h2 className='text-xl font-bold'>Notes App</h2>
             </Link>
             <div className="flex gap-5 text-xl">
                 <Link to='/pinned-notes' 

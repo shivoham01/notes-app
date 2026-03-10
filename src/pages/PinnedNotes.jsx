@@ -1,8 +1,12 @@
 import { useSelector } from 'react-redux'
 import PinnedNote from '../components/PinnedNote'
+import { useEffect } from 'react'
 
 const PinnedNotes = () => {
   const pinnedNotes = useSelector((state) => state.pinnedNotes.items)
+  useEffect(() => {
+    localStorage.setItem("pinnedNotes", JSON.stringify(pinnedNotes))
+  }, [pinnedNotes])
 
   return (
     <div>

@@ -8,11 +8,10 @@ const PinnedNote = ({ note }) => {
     // Remove from pinned notes
     const removePinnedNoteFunc = (noteId) => {
         dispatch(removeFromPinned(noteId))
-        console.log(noteId)
     }
 
     return (
-        <div id={note.id} className="note w-1/4 p-2 border rounded-lg bg-gray-900">
+        <div id={note.id} className="note w-75 p-2 border rounded-lg bg-gray-900">
             <div className='flex justify-between'>
                 <h2 className='pb-2'>{note.title}</h2>
                 <div className='flex gap-2'>
