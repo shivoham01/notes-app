@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import notesSlice from './features/notesSlice'
-import pinnedSlice from './features/pinnedSlice'
+import savedSlice from './features/savedSlice'
 
 export const store = configureStore({
     reducer:{
         notes: notesSlice,
-        pinnedNotes: pinnedSlice
+        savedNotes: savedSlice
     }
 })

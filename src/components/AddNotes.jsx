@@ -36,12 +36,12 @@ const AddNotes = () => {
 
     return (
         <form onSubmit={onSubmitHandler} className="flex flex-col w-full items-center py-6 gap-4">
-            <div className="w-1/4 flex flex-col gap-2">
+            <div className="w-60 flex flex-col gap-2">
                 <label>Title:</label>
                 <input value={title} onChange={(e) => setTitle(e.target.value)} required
                     className="border p-2 rounded-xl" type="text" id="title" placeholder="Enter note title" />
             </div>
-            <div className="w-1/4 flex flex-col gap-2">
+            <div className="w-60 flex flex-col gap-2">
                 <label>Discription:</label>
                 <textarea value={desc} onChange={(e) => setDesc(e.target.value)} required
                     className="border p-2 rounded-xl" placeholder="Enter Your Note" id="discription"></textarea>

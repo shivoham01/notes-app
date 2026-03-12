@@ -1,20 +1,20 @@
 import { useSelector } from 'react-redux'
-import PinnedNote from '../components/PinnedNote'
+import SavedNote from '../components/SavedNote'
 import { useEffect } from 'react'
 
-const PinnedNotes = () => {
-  const pinnedNotes = useSelector((state) => state.pinnedNotes.items)
+const SavedNotes = () => {
+  const savedNotes = useSelector((state) => state.savedNotes.items)
   useEffect(() => {
-    localStorage.setItem("pinnedNotes", JSON.stringify(pinnedNotes))
-  }, [pinnedNotes])
+    localStorage.setItem("savedNotes", JSON.stringify(savedNotes))
+  }, [savedNotes])
 
   return (
     <div>
       <h1 className='px-4 text-lg py-6 font-bold text-green-400 text-center my-5'>My Pinned Notes</h1>
       <div className="notes flex flex-wrap gap-4 justify-center">
-        {pinnedNotes.length > 0 ?
-          pinnedNotes.map((note, idx) => {
-            return <PinnedNote key={idx} note={note} />
+        {savedNotes.length > 0 ?
+          savedNotes.map((note, idx) => {
+            return <SavedNote key={idx} note={note} />
           })
           : <p className='text-gray-600'>Please add your first note...</p>}
       </div>
@@ -22,4 +22,4 @@ const PinnedNotes = () => {
   )
 }
 
-export default PinnedNotes
+export default SavedNotes
