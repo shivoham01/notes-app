@@ -60,6 +60,7 @@ const Note = ({ note }) => {
     // Edit notes function
     const editNoteFunc = (note) => {
         dispatch(SetEditing(true))
+        localStorage.setItem('editingNote', JSON.stringify(note))
     }
 
     return (
@@ -69,7 +70,7 @@ const Note = ({ note }) => {
                 <div className='flex gap-2'>
                     <BookmarkPlus onClick={() => addToSavedFunc(note)} color="#00ff40" className='cursor-pointer' />
                     <Trash onClick={() => removeNote(note.id)} className='cursor-pointer' color="#ff0000" />
-                    <SquarePen onClick={() => editNoteFunc()} className='cursor-pointer' color="#00ff1e" />
+                    <SquarePen onClick={() => editNoteFunc(note)} className='cursor-pointer' color="#00ff1e" />
                 </div>
             </div>
             <p className='text-sm'>{note.desc}</p>

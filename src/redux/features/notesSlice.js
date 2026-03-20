@@ -18,8 +18,8 @@ const notesSlice = createSlice({
         SetEditing: (state, action)=>{
             state.editing = action.payload
         },
-        updateNote: (state,action)=>{
-            state.items.push(...state, action.payload)
+        updateNote: (state, action)=>{
+            state.items = action.payload
         }
     }
 })

@@ -1,18 +1,36 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { SetEditing } from "../redux/features/notesSlice"
+import { SetEditing, updateNote } from "../redux/features/notesSlice"
 
 const UpdateNote = () => {
-    const [title, setTitle] = useState('')
-    const [desc, setDesc] = useState('')
+    const [updatedTitle, setUpdatedTitle] = useState('')
+    const [updatedDesc, setUpdatedDesc] = useState('')
     const dispatch = useDispatch()
     const notes = useSelector((state) => state.notes.items)
+    let editingNote = JSON.parse(localStorage.getItem('editingNote'))
 
-    const onSubmitHandler = () => {
-        // const findNote = notes.findIndex((item)=> item.id === updatedNote.id)
+    useEffect(() => {
+        setUpdatedTitle(editingNote.title)
+        setUpdatedDesc(editingNote.desc)
+    }, [])
+
+    const onSubmitHandler = (e) => {
+        e.preventDefault()
+        // Updating the note
+        const updatedNotes = notes.map((item) => {
+            return item.id === editingNote.id
+                ? { ...item, title: updatedTitle, desc: updatedDesc }
+                : item;
+        })
+        dispatch(updateNote(updatedNotes))
+        
+        // Resetting values
+        setUpdatedTitle('');
+        setUpdatedDesc('');
+        closeUpdate();
     }
 
-    const closeUpdate = ()=>{
+    const closeUpdate = () => {
         dispatch(SetEditing(false))
     }
 
@@ -20,17 +38,17 @@ const UpdateNote = () => {
         <form onSubmit={onSubmitHandler} className="flex flex-col w-full items-center py-6 gap-4">
             <div className="w-60 flex flex-col gap-2">
                 <label>Title:</label>
-                <input value={title} onChange={(e) => setTitle(e.target.value)} required
+                <input value={updatedTitle} onChange={(e) => setUpdatedTitle(e.target.value)} required
                     className="border p-2 rounded-xl" type="text" id="title" placeholder="Enter Updated title" />
             </div>
             <div className="w-60 flex flex-col gap-2">
                 <label>Discription:</label>
-                <textarea value={desc} onChange={(e) => setDesc(e.target.value)} required
+                <textarea value={updatedDesc} onChange={(e) => setUpdatedDesc(e.target.value)} required
                     className="border p-2 rounded-xl" placeholder="Enter Updated Note" id="desc"></textarea>
             </div>
             <div className="flex w-60 gap-2 justify-between">
                 <button className="cursor-pointer active:scale-95 border bg-blue-900 py-2 px-4 rounded-2xl">Update Note</button>
-                <button onClick={()=> closeUpdate()} className="cursor-pointer active:scale-95 border bg-red-900 py-2 px-4 rounded-2xl">Close</button>
+                <button onClick={() => closeUpdate()} className="cursor-pointer active:scale-95 border bg-red-900 py-2 px-4 rounded-2xl">Close</button>
             </div>
         </form>
     )
